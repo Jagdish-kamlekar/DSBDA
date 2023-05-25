@@ -1,0 +1,35 @@
+#Importing Required libarary
+import requests
+import bs4
+
+
+#getting data Requests
+request1 = requests.get('https://www.flipkart.com/poco-c31-royal-blue-64-gb/p/itm19effae969b86')
+request1
+request1.content
+soup = bs4.BeautifulSoup(request1.text)
+
+#Fetching Reviews Or Comments
+reviews = soup.findAll('div',{'class' : '_2c2kV-'});
+
+for review in reviews:
+    print(review.get_text() + "\n\n")
+
+ #average overall Rating
+ ratings = soup.find('div',{'class' : 'col-12-12 _1azcI6'}).get_text();
+ print(ratings)
+
+ #Individual rating
+ individual_ratings = soup.findAll('div',{'class' : '_3LWZlK _1BLPMq'});
+ for indi_rating in individual_ratings:
+    print(indi_rating.get_text() + "\n")
+
+#Fetching Tags
+tags = soup.find('span',{'class' : 'yhB1nd GXgmTe'}).get_text();
+tags
+
+
+#Fetching Customer names
+customer_name = soup.findAll('p',{'class' : '_2sc7ZR _2V5EHH'});
+for cust_name in customer_name:
+    print(cust_name.get_text() + "\n")

@@ -1,0 +1,31 @@
+#Import libarary
+import pandas as pd
+import seaborn as sns
+
+dataset = pd.read_csv("C:/Users/HP/Downloads/IRIS.csv")
+dataset.head()
+
+
+dataset.drop(['species'],axis=1,inplace=True)
+dataset.head()
+
+
+# Line Plot
+  #single Data
+  sns.lineplot(x=dataset.index,y=dataset.sepal_length)
+
+  #All Data Plot
+  sns.lineplot(data=dataset)
+
+
+# Bar Plot
+ sns.barplot(data=dataset)
+
+
+#Calculating Mean
+import numpy as np
+np.mean(dataset.sepal_length)
+
+
+#Scattel Plot
+ sns.scatterplot(data=dataset)

@@ -1,0 +1,37 @@
+#Import Libarary
+import nltk
+from nltk.corpus import stopwords
+nltk.download('stopwords')
+
+
+#Stop and Remove
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = stopwords.words('english')
+print(stop_words)
+
+#Add Or Remove Stopwords
+stop_words.append('work')
+print(stop_words)
+
+#Stemming
+from nltk.stem import PorterStemmer
+#from nltk.tokenize impoet word_tokenize
+stemmer = PorterStemmer()
+input_str = "There Are Several Types of Stemming Algo"
+input_str = nltk.word_tokenize(input_str)
+for word in input_str:
+    print(stemmer.stem(word))
+
+
+#Lemmatization
+import nltk
+nltk.download('wordnet')
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+lemmatizer = WordNetLemmatizer()
+input_str = "There are several cities with mice."
+input_str = nltk.word_tokenize(input_str)
+print (input_str)
+for word in input_str:
+ print(lemmatizer.lemmatize(word))
